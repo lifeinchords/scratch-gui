@@ -20,9 +20,9 @@
     TODO: use variable for denominators (aka, the number of tiles per row)
     TODO: make media queries variables 
 */
-@media (min-width: 320px)  {
+/* @media (min-width: 320px)  {
     .library-item { lost-waffle: 1/4; }
-}
+} */
 /* 
 @media (min-width: 600px)  {
     .library-item { lost-waffle: 1/6 flex; }
@@ -32,12 +32,18 @@
     .library-item { lost-waffle: 1/8 flex; }
 } */
 
+
+
+
 .library-item {
-/*     height: 25vw;
-    width: 25vw;
- */
-    /* display: inline-block; */
-    padding: 1rem 1rem 0 1rem;
+    position: relative;
+    display: inline-block;
+    height: calc(25vw - (10vw / 4) - 4px);
+    width: calc(25vw - (10vw / 4) - 4px);
+    line-height: calc(25vw - (10vw / 4) - 4px);
+    text-align: center;
+    /* margin-left: -4px; */
+    /* padding: 1rem 1rem 0 1rem; */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 0.8rem;
     text-align: center;
@@ -50,6 +56,19 @@
     cursor: pointer;
     /* transition: all 1s ease-out;   */
 }
+
+
+/* .library-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+}
+.library-item:hover:before {
+}
+ */
 
 .library-item:hover {
     border-color: #e1e1e1;

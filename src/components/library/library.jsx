@@ -30,12 +30,7 @@ class LibraryComponent extends React.Component {
                 onRequestClose={this.props.onRequestClose}
             >
                 <h1 className={styles.modalHeader}>{this.props.title}</h1>
-                <Box
-                    className={styles.libraryScrollGrid}
-                    grow={1}
-                    justifyContent="space-around"
-                    wrap="wrap"
-                >
+                <Box className={styles.libraryScrollGrid}>
                     {this.props.data.map((dataItem, itemId) => {
                         const scratchURL = dataItem.md5 ?
                             `https://cdn.assets.scratch.mit.edu/internalapi/asset/${dataItem.md5}/get/` :

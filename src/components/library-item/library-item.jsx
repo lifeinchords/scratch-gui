@@ -23,15 +23,13 @@ class LibraryItem extends React.Component {
                 })}
                 onClick={this.handleClick}
             >
-                {/*
-                    <Box className={styles.libraryItemImageContainer}>
-                        <img
-                            className={styles.libraryItemImage}
-                            src={this.props.iconURL}
-                        />
-                    </Box>
-                    <span className={styles.libraryItemName}>{this.props.name}</span>
-                */}
+                <Box className={styles.libraryItemImageContainer}>
+                    <img
+                        className={styles.libraryItemImage}
+                        src={this.props.iconURL}
+                    />
+                </Box>
+                <span className={styles.libraryItemName}>{this.props.name}</span>
             </Box>
         );
     }

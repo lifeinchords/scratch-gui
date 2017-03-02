@@ -9,9 +9,9 @@
         This works in concert with the Lost waffle (tile) grid declared on .library-item 
         https://codepen.io/lifeinchords/pen/qrboMR
     */
-    height: 100vw; 
+    /* height: 100vw;  */
     /* width: 100%; */
-    /* height: 100%; */
+    height: 100%;
     overflow-y: scroll;
 }
 
