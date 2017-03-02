@@ -1,3 +1,5 @@
+@import "../../css/colors.css";
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -20,14 +22,14 @@
     right: 5%;
     bottom: 5%;
     left: 5%;
-    background: #fcfcfc;
+    background: $ui-pane-gray;
 }
 
 .modal-children {
     overflow: hidden;
     height: 100%;
     z-index: 0;
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .modal-close-button {

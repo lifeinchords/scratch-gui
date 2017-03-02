@@ -1,27 +1,59 @@
 @import "../../css/units.css";
 
+/* 
+    Use PostCSS-based Lost grid to help us generate a square-tiled grid layout
+    Lost calls this a waffle grid: http://lostgrid.org/docs.html#lost-waffle
+
+    Using this so we can have each tile has the same height + width, and a 
+    fixed-sized gutter between the tiles. 
+    Simple example: https://codepen.io/lifeinchords/pen/qrboMR
+
+    OQ: easier/cleaner way?
+*/
+
+@lost gutter $space; /* Use our space unit, as the gutter amount */
+
+/* 
+    Use a different number of tiles based on width of the screen
+
+    TODO: move to a passdown class, so `.library-item` is usable in other contexts
+    TODO: use variable for denominators (aka, the number of tiles per row)
+    TODO: make media queries variables 
+*/
+@media (min-width: 320px)  {
+    .library-item { lost-waffle: 1/4; }
+}
+/* 
+@media (min-width: 600px)  {
+    .library-item { lost-waffle: 1/6 flex; }
+}
+
+@media (min-width: 1024px)  {
+    .library-item { lost-waffle: 1/8 flex; }
+} */
+
 .library-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 160px;
-    height: 160px;
+/*     height: 25vw;
+    width: 25vw;
+ */
+    /* display: inline-block; */
     padding: 1rem 1rem 0 1rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #575e75;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #5d647a;
+    background: white;
     border-radius: $space;
-    border-color: transparent;
-    border-width: 1px;
+    border-color: #e9eef2;
+    border-width: 2px;
     border-style: solid;
     cursor: pointer;
-    transition: all 1s ease-out;  /* slower fade out */ 
+    /* transition: all 1s ease-out;   */
 }
 
 .library-item:hover {
     border-color: #e1e1e1;
-    transition: 0.25s ease-out;
-    background: #f0f0f0;
+    transition: all 0.25s ease-out;
 }
 
 .library-item.is-selected {

@@ -9,6 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
+var lost = require('lost');
 
 module.exports = {
     devServer: {
@@ -58,6 +59,7 @@ module.exports = {
                         return [
                             postcssImport,
                             postcssVars,
+                            lost,
                             autoprefixer({
                                 browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']
                             })
