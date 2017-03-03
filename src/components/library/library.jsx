@@ -5,12 +5,30 @@ const LibraryItem = require('../library-item/library-item.jsx');
 const ModalComponent = require('../modal/modal.jsx');
 
 const styles = require('./library.css');
+const itemStyles = require('../library-item/library-item.css');
+
+const TweenMax = require('gsap').TweenMax;
+
 
 class LibraryComponent extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, ['handleSelect']);
         this.state = {selectedItem: null};
+    }
+    componentDidUpdate (prevProps) {
+        if (!prevProps.visible && this.props.visible) {
+            // TweenMax.to(this.libraryScrollGrid.children, 1, {opacity: 0}, 0.25);
+            TweenMax.staggerTo(
+                '.' + itemStyles.libraryItem,  // collection to animate
+                1, // how long it should take
+                {
+                    opacity: 1, // what props to animate
+                    ease: Power4.easeOut
+                },
+                0.1 // delay between each instance
+            );
+        }
     }
     handleSelect (id) {
         if (this.state.selectedItem === id) {

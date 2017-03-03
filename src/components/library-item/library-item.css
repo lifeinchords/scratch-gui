@@ -20,6 +20,11 @@
     cursor: pointer;
 }
 
+/* @todo: move to js. For playtest only */
+.library-item:nth-child(-n+20) {
+    opacity: 0;   
+}
+
 .library-item:hover {
     border-width: 2px;
     border-color: #1dacf4;
