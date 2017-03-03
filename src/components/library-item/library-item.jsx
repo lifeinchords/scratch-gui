@@ -29,7 +29,7 @@ class LibraryItem extends React.Component {
                         src={this.props.iconURL}
                     />
                 </Box>
-                <span className={styles.libraryItemName}>{this.props.name}</span>
+                <div className={styles.libraryItemName}>{this.props.name}</div>
             </Box>
         );
     }
