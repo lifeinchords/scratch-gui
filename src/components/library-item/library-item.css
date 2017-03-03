@@ -23,24 +23,27 @@
 /* @media (min-width: 320px)  {
     .library-item { lost-waffle: 1/4; }
 } */
-/* 
+ 
 @media (min-width: 600px)  {
-    .library-item { lost-waffle: 1/6 flex; }
+    .library-item { lost-waffle: 1/6 ; }
 }
 
 @media (min-width: 1024px)  {
-    .library-item { lost-waffle: 1/8 flex; }
-} */
+    .library-item { lost-waffle: 1/8 ; }
+} 
 
 
 
 
 .library-item {
-     position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    height: calc(25vw - (10vw / 4) - 4px);
-    width: calc(25vw - (10vw / 4) - 4px);
+    /* position: relative; */
+    /* display: inline-flex; */
+    /* flex-direction: column; */
+
+    lost-waffle: 1/6 ;
+
+    /*height: calc(25vw - (10vw / 4) - 4px);
+    width: calc(25vw - (10vw / 4) - 4px);*/
     /*line-height: calc(25vw - (10vw / 4) - 4px);*/
     /* text-align: center;*/
     /* margin-left: -4px; */
