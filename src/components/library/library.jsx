@@ -31,7 +31,7 @@ class LibraryComponent extends React.Component {
                 // Add a timeline marker, so we can reference the start in the next tween
                 .addLabel('beginning')
 
-                .set('spinner', { display: 'block' });
+                // .set('spinner', { display: 'block' })
 
                 // Animate the library sprites in a sequence. 
                 // Prepping for a material-like shimmer animation
