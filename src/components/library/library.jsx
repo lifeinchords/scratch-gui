@@ -8,7 +8,7 @@ const styles = require('./library.css');
 const itemStyles = require('../library-item/library-item.css');
 
 const TweenMax = require('gsap').TweenMax;
-
+const TimelineMax = require('gsap').TimelineMax;
 
 class LibraryComponent extends React.Component {
     constructor (props) {
@@ -18,16 +18,44 @@ class LibraryComponent extends React.Component {
     }
     componentDidUpdate (prevProps) {
         if (!prevProps.visible && this.props.visible) {
-            // TweenMax.to(this.libraryScrollGrid.children, 1, {opacity: 0}, 0.25);
-            TweenMax.staggerTo(
-                '.' + itemStyles.libraryItem,  // collection to animate
-                1, // how long it should take
-                {
-                    opacity: 1, // what props to animate
-                    ease: Power4.easeOut
-                },
-                0.1 // delay between each instance
-            );
+
+            const tl = new TimelineMax();
+
+            // set up the timeline
+            tl
+                // hide sprite items, so we can animate them back in.
+                // another method is to just set them to opacity: 0 by default
+                // Doing this here for now so technique is readable.
+                .set('.' + itemStyles.libraryItem, {autoAlpha: 0})
+
+                // Add a timeline marker, so we can reference the start in the next tween
+                .addLabel('beginning')
+
+                .set('spinner', { display: 'block' });
+
+                // Animate the library sprites in a sequence. 
+                // Prepping for a material-like shimmer animation
+                .staggerTo(
+                    // Specify the collection of children to animate.
+                    // @t odo: cleaner way of selecting items without string concat
+                    // maybe: this.libraryScrollGrid.children
+                    // @t odo: refactor to stagger only what's in view, and restagger on scroll
+                    // For now, hardcoded to first how to only get what's in view, say the first 30 items?
+                    '.' + itemStyles.libraryItem,
+
+                    0.5, // how long it should take
+                    {
+                        // Greensock convenience prop to smartly do 2 things:
+                        // animate the opacity to something
+                        // when it completes, set display property and display when animation completes
+                        autoAlpha: 1, 
+                        ease: Power4.easeOut
+                    },
+                    0.05, // delay between each item's animmation
+                    'beginning+=0.5'
+                )
+
+                .play();
         }
     }
     handleSelect (id) {
